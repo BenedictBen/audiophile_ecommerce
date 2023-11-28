@@ -3,3 +3,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.break{
+  width: 600px;  
+}
+
+/* .bgImage{
+  background-image: url(./assets/home/tablet/image-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  background-position: center;
+  width: fit-content;
+} */
