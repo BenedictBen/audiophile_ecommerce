@@ -1,85 +1,157 @@
-import { Box, Button, Flex, Heading, Image, Text,Show } from '@chakra-ui/react'
-import React from 'react';
+import { Box, Button, Flex, Heading, Hide, Show, Text } from '@chakra-ui/react'
+import React from 'react'
 import Hero from "../../assets/home/desktop/image-hero.jpg"
-import Hero1 from "../../assets/home/tablet/image-header.jpg"
-import Hero2 from "../../assets/home/mobile/image-header.jpg"
+import '../../App.css'
+import Navbar from '../Navbar'
 
 const Header = () => {
   return (
-    //  DESKTOP VIEW
-    <Box>
-    
-    <Flex
-      alignItems="center"
-      justifyContent="space-between"
-      display={["none", "none", "none", "block"]}
-    >
-      {/* {//top={["20","80"]}//} */}
-      <Box position={"absolute"}  zIndex={"12"} color={"white"} left={"20"} top="60">
-        <Text mb="3">NEW PRODUCT</Text>
-        <Heading  mb="5" fontSize={["64px"]} className="break">XX99 MARK II HEADPHONES</Heading>
-        <Text w={"380px"} mb="5" fontSize={['lg']}>
-          Experience natural, lifelike audio and exceptional build quality made
-          for the passionate music enthusiast
-        </Text>
-        <Button variant="ghost" bg="#D87D4A" color="#fff" size="lg" borderRadius="0">SEE PRODUCT</Button>
-      </Box>
-
-      <Box position={"relative"} zIndex={"0"} >
-        <Image src={Hero}  alt="headphone" height="100%"/>
-      </Box>
-    </Flex>
-  
-    {/* TABLET VIEW */}
-    
-        <Flex 
-        display={["none", "none", "block", "none"]}
-        >
-        <Box position="absolute" color="white" zIndex={"12"} top="80" left="60">
-          <Text mb="3" textAlign="center" color="grey" style={{
-            letterSpacing: '12px'
-          }}>NEW PRODUCT</Text>
-        <Heading  mb="5" fontSize={["60px"]} textAlign="center" width="440px">XX99 MARK II HEADPHONES</Heading>
-        <Text margin="0 auto" textAlign="center" width="380px" color="grey">
-          Experience natural, lifelike audio and exceptional build quality made
-          for the passionate music enthusiast
-        </Text>
-        <Button 
-        variant="ghost" 
-        bg="#D87D4A" 
-        color="#fff" 
-        size="lg" 
-        borderRadius="0" 
-        mt="8" 
-        >SEE PRODUCT</Button>
-          </Box>
-          <Box position="relative">
-            <Image src={Hero1}  alt="headphone" />
+    <>
+      {/* DESKTOP VIEW */}
+      <Show above="lg">
+        <Flex className="desktop">
+          <Box
+            display={"flex"}
+            alignItems="center"
+            width="50%"
+            justifyContent={"space-between"}
+            pl="12"
+          >
+            <Flex flexDirection={"column"} color="white" gap="8">
+              <Text
+                style={{
+                  letterSpacing: "12px",
+                }}
+                color="grey"
+                fontSize={"20"}
+              >
+                NEW PRODUCT
+              </Text>
+              <Heading fontSize={"60"}>XX99 MARK II HEADPHONES</Heading>
+              <Text fontSize={"24"} width="44vw">
+                Experience natural, lifelike audio and exceptional build quality
+                made for the passionate music enthusiast
+              </Text>
+              <Button
+                variant="ghost"
+                bg="#D87D4A"
+                color="#fff"
+                size="lg"
+                width="20vw"
+                height="8vh"
+                borderRadius="0"
+                // flexShrink={"0"}
+              >
+                SEE PRODUCT
+              </Button>
+            </Flex>
           </Box>
         </Flex>
-    
-    {/* MOBILE VIEW */}
-    <Flex display={["block", "block", "none", "none"]} alignItems="center">
-          <Box position="absolute" color="white" zIndex={"12"} textAlign="center" top={["80"]}>
-          <Text mb="3" textAlign="center" color="grey" style={{
-            letterSpacing: '8px'
-          }}>NEW PRODUCT</Text>
-        <Heading  mb="5" fontSize={["40px"]} textAlign="center">XX99 MARK II HEADPHONES</Heading>
-        <Text width="380px" textAlign="center" margin="0 margin">Experience natural, lifelike audio and exceptional build quality made
-          for the passionate music enthusiast</Text>
-         <Button variant="ghost" bg="#D87D4A" color="#fff" size="lg" borderRadius="0" mt="5">SEE PRODUCT</Button>
-          </Box>
-          <Box position="relative">
-            <Image src={Hero2} alt="hero"/>
-          </Box>
-    </Flex>
+      </Show>
 
-    
-    </Box>
-    
-    
-    
+      {/* TABLET VIEW */}
+      <Show below="lg">
+        <Hide below="md">
+          <Flex className="tablet">
+            <Box
+              display={"flex"}
+              alignItems="center"
+              width="100%"
+              justifyContent={"space-between"}
+              color="white"
+            >
+              <Flex
+                flexDirection={"column"}
+                //   width="50%"
+                margin={"0 auto"}
+                gap="7"
+                textAlign={"center"}
+              >
+                <Text
+                  fontSize={"16"}
+                  color="grey"
+                  style={{
+                    letterSpacing: "12px",
+                  }}
+                >
+                  NEW PRODUCT
+                </Text>
+                <Heading fontSize={"56"} width="96">
+                  XX99 MARK II HEADPHONES
+                </Heading>
+                <Text textAlign={"center"} width="360px" margin={"0 auto"}>
+                  Experience natural, lifelike audio and exceptional build
+                  quality made for the passionate music enthusiast
+                </Text>
+                <Button
+                  variant="ghost"
+                  bg="#D87D4A"
+                  color="#fff"
+                  size="lg"
+                  width="30vw"
+                  height="8vh"
+                  borderRadius="0"
+                  textAlign={"center"}
+                  margin="0 auto"
+                >
+                  SEE PRODUCT
+                </Button>
+              </Flex>
+            </Box>
+          </Flex>
+        </Hide>
+      </Show>
+      {/* MOBILE VIEW */}
+      <Show below="md">
+        <Flex className="mobile">
+          <Box
+            display={"flex"}
+            alignItems="center"
+            width="100%"
+            justifyContent={"space-between"}
+            color="white"
+          >
+            <Flex
+              flexDirection={"column"}
+              //   width="50%"
+              margin={"0 auto"}
+              gap="7"
+              textAlign={"center"}
+            >
+              <Text
+                fontSize={"12"}
+                color="grey"
+                style={{
+                  letterSpacing: "12px",
+                }}
+              >
+                NEW PRODUCT
+              </Text>
+              <Heading fontSize={"44"} width="96">
+                XX99 MARK II HEADPHONES
+              </Heading>
+              <Text textAlign={"center"} fontSize="12" width="320px" margin={"0 auto"}>
+                Experience natural, lifelike audio and exceptional build quality
+                made for the passionate music enthusiast
+              </Text>
+              <Button
+                variant="ghost"
+                bg="#D87D4A"
+                color="#fff"
+                size="lg"
+                
+                borderRadius="0"
+                textAlign={"center"}
+                margin="0 auto"
+              >
+                SEE PRODUCT
+              </Button>
+            </Flex>
+          </Box>
+        </Flex>
+      </Show>
+    </>
   );
 }
 
-export default Header
+export default Header;
